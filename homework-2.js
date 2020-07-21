@@ -1,16 +1,26 @@
-const N_FIRST = +prompt("Enter a number");
-const M_SECOND = +prompt("Enter the number again");
+let numberFirst = +prompt("Enter a first number");
+while (isNaN(numberFirst)) {
+  numberFirst = +prompt("Enter a number again");
+}
 
-if (N_FIRST && M_SECOND === Number.isInteger(N_FIRST && M_SECOND));
-const SKIP_NUMBERS = confirm("Skip even numbers?");
+let numberSecond = +prompt("Enter the second number");
+while (isNaN(numberFirst)) {
+  numberFirst = +prompt("Enter the second again");
+}
+
+while (numberFirst > numberSecond) {
+  numberSecond = +prompt("Еhe second number should be greater");
+}
+
+let skipNumbers = confirm("Skip even numbers?");
 let numbers = 0;
-for (let i = N_FIRST; i <= M_SECOND; i++) {
-  if (SKIP_NUMBERS && i % 2 === 0) continue;
+for (let i = numberFirst; i <= numberSecond; i++) {
+  if (skipNumbers && i % 2 === 0) continue;
   else {
     numbers += i;
   }
 }
 
-console.log(`First number: ${N_FIRST}
-Second number: ${M_SECOND}
+console.log(`First number: ${numberFirst}
+Second number: ${numberSecond}
 Numbers: ${numbers}`);
