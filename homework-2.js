@@ -1,11 +1,11 @@
 let numberFirst = +prompt("Enter a first number");
 let numberSecond = +prompt("Enter the second number");
 
-if ((numberFirst == " ") || (isNaN(numberFirst)) || (Number.isInteger(numberFirst)) || numberFirst.match(/^\s+$/) === null) {
+while ((numberFirst == "") || isNaN(numberFirst) || !Number.isInteger(numberFirst)) {
   alert("Repeat");
   numberFirst = +prompt("Enter a number again");
 }
-else ((numberSecond == " ") || (isNaN(numberSecond)) || (Number.isInteger(numberSecond)) || numberSecond.match(/^\s+$/) === null); {
+while ((numberSecond == "") || isNaN(numberSecond) || !Number.isInteger(numberSecond)) {
   numberSecond = +prompt("Enter the second number again");
 }
 
