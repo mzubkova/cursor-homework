@@ -1,12 +1,13 @@
 let numberFirst = +prompt("Enter a first number");
-while (isNaN(numberFirst)) {
+let numberSecond = +prompt("Enter the second number");
+
+if ((numberFirst == " ") || (isNaN(numberFirst)) || (Number.isInteger(numberFirst))) {
+  alert("Repeat");
   numberFirst = +prompt("Enter a number again");
 }
-
-let numberSecond = +prompt("Enter the second number");
-while (isNaN(numberFirst)) {
-  numberFirst = +prompt("Enter the second again");
-}
+else ((numberSecond == " ") || (isNaN(numberSecond)) || (Number.isInteger(numberSecond))); {
+    numberSecond = +prompt("Enter the second number again");
+  }
 
 while (numberFirst > numberSecond) {
   numberSecond = +prompt("Еhe second number should be greater");
