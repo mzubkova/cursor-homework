@@ -1,13 +1,13 @@
 let numberFirst = +prompt("Enter a first number");
 let numberSecond = +prompt("Enter the second number");
 
-if ((numberFirst == " ") || (isNaN(numberFirst)) || (Number.isInteger(numberFirst))) {
+if ((numberFirst == " ") || (isNaN(numberFirst)) || (Number.isInteger(numberFirst)) || numberFirst.match(/^\s+$/) === null) {
   alert("Repeat");
   numberFirst = +prompt("Enter a number again");
 }
-else ((numberSecond == " ") || (isNaN(numberSecond)) || (Number.isInteger(numberSecond))); {
-    numberSecond = +prompt("Enter the second number again");
-  }
+else ((numberSecond == " ") || (isNaN(numberSecond)) || (Number.isInteger(numberSecond)) || numberSecond.match(/^\s+$/) === null); {
+  numberSecond = +prompt("Enter the second number again");
+}
 
 while (numberFirst > numberSecond) {
   numberSecond = +prompt("Еhe second number should be greater");
