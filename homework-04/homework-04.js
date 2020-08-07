@@ -36,14 +36,11 @@ function getStudentsMarks(students, marks) {
 
 // №4 Поставте кожній парі випадкову оцінку (від 1 до 5) за проект (тут функція буде нечистою, але не повинна мутувати массив):
 function getRandomThemesMarks(pairsThemes) {
-  const arrRandomMarks = [];
   const arrRandom = [];
 
   for (let i = 0; i < pairsThemes.length; i++) {
-    arrRandomMarks[i] = [Math.floor(Math.random() * 5) + 1];
-  }
-  for (let i = 0; i < pairsThemes.length; i++) {
-    arrRandom.push([pairsThemes[i] + ", " + arrRandomMarks[i]]);
+    const arrRandomMarks = Math.floor(Math.random() * 5 + 1);
+    arrRandom[i] = pairsThemes[i].concat(arrRandomMarks);
   }
   return arrRandom;
 }
