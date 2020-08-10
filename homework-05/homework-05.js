@@ -56,7 +56,7 @@ const filterEvenNumbers = (...numbers) => {
 // №6 Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 
 const countPositiveNumbers = (...numbers) => {
-  return numbers.filter((item) => item > 0);
+  return numbers.filter((item) => item > 0).length;
 };
 
 // №7 Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
