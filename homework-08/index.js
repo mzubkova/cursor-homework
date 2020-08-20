@@ -76,7 +76,8 @@ console.log("№ 2 метод getInfo():", student.getInfo());
 console.log("№ 4 геттер оцінок marks:", student.marks);
 console.log(
   "№ 5 метод отримання середнього балу getAverageMark:",
-  student.getAverageMark());
+  student.getAverageMark()
+);
 console.log("№ 6 виключення студента:", student2.dismiss());
 console.log("оцінки студента після виключення:", student2.marks);
 student2.marks = 4;
@@ -95,11 +96,11 @@ console.log("оцінки студента після поновлення:", st
 
 class BudgetStudent extends Student {
   constructor(scholarship, university, course, fullName) {
-    setInterval(() => {
-      this.getScholarship();
-    }, 30000);
     super(university, course, fullName);
     this.scholarship = scholarship;
+    setInterval(() => {
+      this.getScholarship();
+    }, 3000);
   }
 
   getScholarship() {
@@ -127,16 +128,19 @@ budgetStudent.marks = 1;
 console.log(
   "середній бал:",
   budgetStudent.getInfo(),
-  budgetStudent.getAverageMark());
+  budgetStudent.getAverageMark()
+);
 console.log("стипендія: ", budgetStudent.getScholarship());
 budgetStudent2.marks = 5;
 console.log(
   "середній бал:",
   budgetStudent2.getInfo(),
-  budgetStudent2.getAverageMark());
+  budgetStudent2.getAverageMark()
+);
 console.log("стипендія:", budgetStudent2.getScholarship());
 console.log(
   "виключення студента:",
   budgetStudent.getInfo(),
-  budgetStudent.dismiss());
+  budgetStudent.dismiss()
+);
 console.log("стипендія: ", budgetStudent.getScholarship());
