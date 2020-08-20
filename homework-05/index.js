@@ -49,8 +49,8 @@ const getMedian = (...numbers) => {
 // №5 Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 
 const filterEvenNumbers = (...numbers) => {
-  const doubleNumbers = numbers.filter((item) => item % 2);
-  return doubleNumbers;
+  const evenNumbers = numbers.filter((item) => item % 2);
+  return evenNumbers;
 };
 
 // №6 Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
@@ -67,18 +67,12 @@ const getDividedByFive = (...numbers) => {
 
 // №8 Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*). При вирішенні цього завдання необхідно розбити масив на слова за допомогою функції .split(" "), після чого масив необхідно буде склеїти .join(" ") Погані слова: shit та fuck. Передбачте можливість розширювати список цих слів у майбутньому.
 
-// const replaceBadWords = (string) => {
-//   const badWords = ["shit", "fuck"];
-//   const newString = string.split(" ").map((words) => {
-//     badWords.forEach(string => {
-//       if (words.includes(badWords))
-//         return words.replace(badWords, "****");
-//     });
-//   });
-//   return newString;
-// };
-
-// console.log(replaceBadWords("Are you fucking kidding?"));
+const replaceBadWords = (string) => {
+  const badWords = ["fuck", "shit"];
+  let regepx = new RegExp(badWords[0] + "|" + badWords[1], "g", "i");
+  let newtString = string.split(" ");
+  return newtString.map((word) => word.replace(regepx, "****")).join(" ");
+};
 
 // №9 Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви.Якщо букв менше трьох – не розбиває.Пробіли завжди видаляються.Рядок приводится до нижнього регістру.
 
@@ -112,9 +106,19 @@ const getDividedByFive = (...numbers) => {
 // }
 
 // console.log(generateCombinations("generate"));
-console.log('№1 getRandomArray: ', getRandomArray(5, 1, 69));
-console.log('№3 getAverage', getAverage(1, 3, 8, 6.6));
-console.log('№4 getMedian', getMedian(1, 2, 3, 4, 5));
-console.log('№5 filterEvenNumbers', filterEvenNumbers(1, 3, 8, 6, 7, 12));
-console.log('№6 countPositiveNumbers', countPositiveNumbers(1, 3, 8, 6, 7, 12, -8));
-console.log('№7 getDividedByFive', getDividedByFive(6, 2, 55, 78, 2, 55, 57, 87, 23, 2, 56, 2, 55));
+console.log("№1 getRandomArray: ", getRandomArray(5, 1, 69));
+console.log("№3 getAverage: ", getAverage(1, 3, 8, 6.6));
+console.log("№4 getMedian: ", getMedian(1, 2, 3, 4, 5));
+console.log("№5 filterEvenNumbers: ", filterEvenNumbers(1, 3, 8, 6, 7, 12));
+console.log(
+  "№6 countPositiveNumbers: ",
+  countPositiveNumbers(1, 3, 8, 6, 7, 12, -8)
+);
+console.log(
+  "№7 getDividedByFive: ",
+  getDividedByFive(6, 2, 55, 78, 2, 55, 57, 87, 23, 2, 56, 2, 55)
+);
+console.log(
+  "№8 replaceBadWords: ",
+  replaceBadWords("Are you fucking kidding (shit) ?")
+);
