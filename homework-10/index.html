@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Homework#10</title>
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="90" class="key">
+        <kbd>Z</kbd>
+        <span class="sound">Mystery</span>
+      </div>
+      <div data-key="88" class="key">
+        <kbd>X</kbd>
+        <span class="sound">Falling Up</span>
+      </div>
+      <div data-key="67" class="key">
+        <kbd>C</kbd>
+        <span class="sound">Up Gliss Idea</span>
+      </div>
+      <div data-key="86" class="key">
+        <kbd>V</kbd>
+        <span class="sound">Waterphone</span>
+      </div>
+      <div data-key="66" class="key">
+        <kbd>B</kbd>
+        <span class="sound">Down Gliss</span>
+      </div>
+      <div data-key="78" class="key">
+        <kbd>N</kbd>
+        <span class="sound">Timpani</span>
+      </div>
+      <div data-key="77" class="key">
+        <kbd>M</kbd>
+        <span class="sound">Vibraphone</span>
+      </div>
+    </div>
+    <!-- Клавіши Z X C V B N M -->
+
+    <audio id="keyZ" data-key="90" src="sounds/1.mp3"></audio>
+    <audio id="keyX" data-key="88" src="sounds/2.mp3"></audio>
+    <audio id="keyC" data-key="67" src="sounds/3.mp3"></audio>
+    <audio id="keyV" data-key="86" src="sounds/4.mp3"></audio>
+    <audio id="keyB" data-key="66" src="sounds/5.mp3"></audio>
+    <audio id="keyN" data-key="78" src="sounds/6.mp3"></audio>
+    <audio id="keyM" data-key="77" src="sounds/7.mp3"></audio>
+
+    <script defer src="./index.js"></script>
+  </body>
+</html>
