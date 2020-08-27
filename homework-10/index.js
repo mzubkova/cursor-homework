@@ -1,12 +1,21 @@
 function playSound(e) {
   const attribute = `[data-key="${event.keyCode}"]`;
-  const audio = document.querySelector('audio' + attribute);
-  const key = document.querySelector('div' + attribute);
+  const audio = document.querySelector("audio" + attribute);
+  const key = document.querySelector("div" + attribute);
   if (event.keyCode === key) audio.currentTime = 0;
   audio.play();
+  key.classList.add("playing");
 }
 
-document.addEventListener('keydown', playSound);
+function removeTransition() {
+  this.classList.remove("playing");
+}
+
+const keys = Array.from(document.querySelectorAll(".key"));
+keys.forEach((key) =>
+  key.addEventListener("transitionend", removeTransition, false)
+);
+document.addEventListener("keydown", playSound);
 
 // function playSound(e) {
 //   const attribute = `[data-key="${e.keyCode}"]`;
