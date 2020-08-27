@@ -26,13 +26,15 @@ class Student {
   }
 
   get marks() {
-    if (this.isDismiss) return null;
-    else return this.arrayMarks;
+    if (this.isDismiss) {
+      return null;
+    } return this.arrayMarks;
   }
 
   set marks(mark) {
-    if (this.isDismiss) return null;
-    else return this.arrayMarks.push(mark);
+    if (this.isDismiss) {
+      return null;
+    } return this.arrayMarks.push(mark);
   }
 
   getAverageMark() {
@@ -106,7 +108,7 @@ class BudgetStudent extends Student {
   getScholarship() {
     if (this.getAverageMark <= 4 && this.dismiss) {
       return null;
-    } else return `Ви отримали ${this.scholarship} грн.стипендії`;
+    } return `Ви отримали ${this.scholarship} грн.стипендії`;
   }
 }
 
