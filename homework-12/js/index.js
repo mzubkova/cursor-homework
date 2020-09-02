@@ -1,4 +1,4 @@
-const BASE = 'https://swapi.dev/api/';
+const BASE = "https://swapi.dev/api/";
 
 const container = document.querySelector(".container");
 const fragment = document.createDocumentFragment();
@@ -7,11 +7,14 @@ const btnGetPlanets = document.querySelector(".btn-get-planets");
 const row = document.querySelector(".row");
 const colInfo = document.querySelector(".col-info");
 const colPlanets = document.querySelector(".col-planets");
+const next = document.getElementById("next");
 
 async function getPeople() {
   try {
-    const response = await fetch(`${BASE}people/`,).then(response => response.json());
-    return result = response.results;
+    const response = await fetch(`${BASE}people/`).then((response) =>
+      response.json()
+    );
+    return (result = response.results);
   } catch (error) {
     console.log(error);
     return Promise.reject(error);
@@ -24,8 +27,10 @@ getPeople()
 
 async function getPlanets(page = 1) {
   try {
-    const response = await fetch(`${BASE}planets/?page=${page}`).then(response => response.json());
-    return result = response.results;
+    const response = await fetch(
+      `${BASE}planets/?page=${page}`
+    ).then((response) => response.json());
+    return (result = response.results);
   } catch (error) {
     console.log(error);
     return Promise.reject(error);
@@ -37,7 +42,7 @@ getPlanets()
   .catch((err) => console.log(err));
 
 function renderPeople(people) {
-  people.forEach(hero => {
+  people.forEach((hero) => {
     const card = document.createElement("div");
     card.classList.add("card");
     const cardBody = document.createElement("div");
@@ -48,10 +53,10 @@ function renderPeople(people) {
     const article = document.createElement("p");
     article.classList.add("card-text");
     switch (hero.gender) {
-      case 'male':
+      case "male":
         hero.gender = ` <i class="fas fa-mars fa-3x"></i>`;
         break;
-      case 'female':
+      case "female":
         hero.gender = `<i class="fas fa-venus fa-3x"></i>`;
       default:
         hero.gender = `<i class="fab fa-reddit-alien fa-3x"></i>`;
@@ -69,40 +74,33 @@ function renderPeople(people) {
 
 function renderPlanets(planets) {
   const container = document.querySelector(".container");
-  planets.forEach(planet => {
-    const card = cardTemplate(planet);
-    colPlanets.insertAdjacentElement('afterbegin', card);
+  planets.forEach((planet) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    const title = document.createElement("h5");
+    title.classList.add("card-title");
+    title.textContent = planet.name;
+    cardBody.appendChild(title);
+    card.appendChild(cardBody);
+    colPlanets.appendChild(card);
     row.appendChild(colPlanets);
     fragment.appendChild(row);
   });
   container.appendChild(fragment);
 }
 
-function cardTemplate(planet) {
-  const card = document.createElement("div");
-  card.classList.add("card");
-  const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body");
-  const title = document.createElement("h5");
-  title.classList.add("card-title");
-  title.textContent = planet.name;
-  cardBody.appendChild(title);
-  card.appendChild(cardBody);
-  colPlanets.appendChild(card);
-  row.appendChild(colPlanets);
-  fragment.appendChild(row);
-  return card;
-}
-
 let currentPage = 1;
 function paginationInit() {
-  document.getElementById('next').addEventListener("click", () => {
-    if (currentPage <= 0) return;
-    getPlanets(++currentPage).then(renderPlanets);
-  });
+  colPlanets.innerHTML = "";
+  currentPage = currentPage <= 0 ? 1 : (currentPage += 1);
+  getPlanets(currentPage).then(renderPlanets);
 }
+document.getElementById("next").addEventListener("click", () => {
+  paginationInit(currentPage);
+});
 
-paginationInit();
 btnGetInfo.addEventListener("click", (e) => {
   getPeople().then(renderPeople);
 });
