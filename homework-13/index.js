@@ -5,16 +5,6 @@
 // idGenerator.next().value -> 2
 // idGenerator.next().value -> 3
 // ...
-// function* createIdGenerator() {
-//   yield 1;
-//   yield 2;
-//   yield 3;
-// }
-
-// const idGenerator = createIdGenerator();
-// for (const value of idGenerator) {
-//   console.log(value);
-// }
 
 function* createIdGenerator() {
   let i = 1;
