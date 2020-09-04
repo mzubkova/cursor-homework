@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /node_modules
 package-lock.json
+=======
+.vscode
+debug.log
+>>>>>>> 881988e8de2cb2992bf6176b30ca0957d415c9a2
